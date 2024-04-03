@@ -16,12 +16,12 @@ export default function Home() {
             <MdWavingHand className="text-yellow-600 inline-block text-xl -mt-1" />,
             <br />
             <br/>
-            I'm Ajithkumar. With over 7 years immersed in the art of Enterprise
+            {`I'm Ajithkumar. With over 7 years immersed in the art of Enterprise
             Application product development, I wield a mastery of advanced
             JavaScript methodologies, crafting reusable UI components that dance
             seamlessly on robust user interfaces. My journey is a tech carnival
             showcasing my wild ride through diverse computer technologies,
-            fueled by an insatiable hunger for new knowledge.
+            fueled by an insatiable hunger for new knowledge.`}
           </p>
           <p className="mt-4">
             I am always on the lookout for challenging activities that push my
