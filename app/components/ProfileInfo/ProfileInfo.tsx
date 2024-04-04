@@ -12,7 +12,7 @@ import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 
 export const ProfileInfo = () => (
   <div className="w-full px-7 py-7 flex flex-col items-center gap-4">
-    <div className="relative h-60 w-[60%] rounded-xl bg-pink-300 overflow-hidden -m-44">
+    <div className="relative h-60 w-[60%] rounded-xl bg-red-300 overflow-hidden -m-44">
       <Image
         src="/profile-image.png"
         alt="Ajith kumar"

@@ -4,7 +4,7 @@ import { FaUserGraduate } from "react-icons/fa";
 import { Progressbar } from "../components/Progressbar";
 
 const testRuners = ["Jest", "Vite", "Cypress"];
-const relatedSkils = ['Agile (Scrum)', 'SEO / Meta', 'Jira / Atlassian'];
+const relatedSkils = ["Agile (Scrum)", "SEO / Meta", "Jira / Atlassian"];
 const toolsSkils = [
   "Git / Bash / Shells",
   "Eslint",
@@ -167,28 +167,32 @@ export default function Resume() {
             ))}
           </div>
         </div>
-        <div className="flex flex-col gap-4">
-          <div className="text-lg font-medium">Test Runners & Libraries</div>
-          <div className="flex flex-wrap gap-2">
-            {testRuners?.map((skill, index) => (
-              <div
-                className="bg-red-100 px-4 py-1 rounded-full text-xs font-medium"
-                key={index}
-              >
-                {skill}
-              </div>
-            ))}
+        <div className="flex flex-col justify-between flex-1">
+          <div className="flex flex-col gap-4">
+            <div className="text-lg font-medium">Test Runners & Libraries</div>
+            <div className="flex flex-wrap gap-2">
+              {testRuners?.map((skill, index) => (
+                <div
+                  className="bg-red-100 px-4 py-1 rounded-full text-xs font-medium"
+                  key={index}
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="text-lg font-medium mt-2">Related Skills</div>
-          <div className="flex flex-wrap gap-2">
-            {relatedSkils?.map((skill, index) => (
-              <div
-                className="bg-red-100 px-4 py-1 rounded-full text-xs font-medium"
-                key={index}
-              >
-                {skill}
-              </div>
-            ))}
+          <div className="flex flex-col gap-4">
+            <div className="text-lg font-medium mt-2">Related Skills</div>
+            <div className="flex flex-wrap gap-2">
+              {relatedSkils?.map((skill, index) => (
+                <div
+                  className="bg-red-100 px-4 py-1 rounded-full text-xs font-medium"
+                  key={index}
+                >
+                  {skill}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
