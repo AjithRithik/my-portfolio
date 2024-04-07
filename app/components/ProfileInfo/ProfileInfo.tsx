@@ -34,7 +34,7 @@ export const ProfileInfo = () => (
         className="object-cover"
       />
     </div>
-    <div className="font-semibold text-3xl capitalize mt-36">
+    <div className="font-semibold text-2xl capitalize mt-36">
       Ajith kumar Susai A
     </div>
     <div className="text-sm font-semibold bg-gray-100 px-4 py-1 rounded-full">

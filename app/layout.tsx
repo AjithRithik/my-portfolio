@@ -27,11 +27,11 @@ export default function RootLayout({
           <div className="max-w-[1440px] w-full m-auto px-6 pt-12 pb-14">
             <Header />
             <div className="flex gap-8 w-full justify-center">
-              <div className="w-[25%] bg-white rounded-xl h-max sticky top-[160px]">
+              <div className="w-[340px] bg-white rounded-xl h-max sticky top-[160px]">
                 <ProfileInfo />
               </div>
               <div className="flex flex-1 bg-white rounded-xl sticky top-[180px]">
-                <div className="py-14 relative">{children}</div>
+                <div className="py-14 relative w-full">{children}</div>
               </div>
               <div className="bg-white w-28 p-4 rounded-xl h-max sticky top-[30px] justify-center">
                 <Navigation />
