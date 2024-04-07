@@ -30,10 +30,10 @@ export default function RootLayout({
               <div className="w-[25%] bg-white rounded-xl h-max sticky top-[160px]">
                 <ProfileInfo />
               </div>
-              <div className="max-w-[62%] w-full bg-white rounded-xl sticky top-[180px]">
+              <div className="flex flex-1 bg-white rounded-xl sticky top-[180px]">
                 <div className="py-14 relative">{children}</div>
               </div>
-              <div className="bg-white flex flex-1 p-4 rounded-xl h-max sticky top-[30px] justify-center">
+              <div className="bg-white w-28 p-4 rounded-xl h-max sticky top-[30px] justify-center">
                 <Navigation />
               </div>
             </div>
