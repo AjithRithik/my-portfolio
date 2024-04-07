@@ -4,7 +4,7 @@ import { FaCode, FaDraftingCompass } from "react-icons/fa";
 import { MdChat, MdWavingHand } from "react-icons/md";
 import { Slider } from "./components/Slider";
 import { Heading } from "./components/Heading";
-import { WhatIDo, WhatIDoProps } from "./components/WhatIDo/WhatIDo";
+import { WhatIDo, WhatIDoProps } from "./components/WhatIDo";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import { SiContentful, SiGooglesearchconsole, SiTestinglibrary } from "react-icons/si";
 

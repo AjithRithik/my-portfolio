@@ -49,7 +49,7 @@ export const Navigation = () => {
             currentPath === link?.href
               ? "bg-blue-400 text-white"
               : "bg-gray-200"
-          } px-4 h-24 w-full rounded-xl justify-center items-center flex flex-col gap-2
+          } px-4 h-24 w-full rounded-xl justify-center items-center flex flex-col gap-2 text-gray-800
           hover:bg-blue-600 hover:text-white transition-all duration-500`}
         >
           <div className="text-3xl">{link?.icon}</div>

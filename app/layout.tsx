@@ -26,11 +26,11 @@ export default function RootLayout({
         <main className="overflow-x-hidden h-screen w-screen">
           <div className="max-w-[1440px] w-full m-auto px-6 pt-12 pb-14">
             <Header />
-            <div className="flex gap-8 w-full">
-              <div className="w-[30%] bg-white rounded-xl h-max sticky top-[180px]">
+            <div className="flex gap-8 w-full justify-center">
+              <div className="w-[25%] bg-white rounded-xl h-max sticky top-[160px]">
                 <ProfileInfo />
               </div>
-              <div className="w-[57%] bg-white rounded-xl sticky top-[180px]">
+              <div className="max-w-[62%] w-full bg-white rounded-xl sticky top-[180px]">
                 <div className="py-14 relative">{children}</div>
               </div>
               <div className="bg-white flex flex-1 p-4 rounded-xl h-max sticky top-[30px] justify-center">
