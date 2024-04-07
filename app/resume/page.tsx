@@ -108,7 +108,7 @@ export default function Resume() {
                 <div className="text-sm text-gray-800 font-light">
                   Feb 2016 - Jan 2020
                 </div>
-                <div className="mt-1">10th Grade - 91%</div>
+                <div className="mt-1">Software Engineer</div>
                 <div className="text-sm mt-1 text-gray-800 font-light">
                   Orion Business Innovation, Madurai
                 </div>

@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[url(/page-bg-1.jpg)] bg-cover bg-[50%]`}
+        className={`${inter.className} bg-[url(/page-bg-1.jpg)] bg-cover bg-[50%] text-black`}
       >
         <main className="overflow-x-hidden h-screen w-screen">
           <div className="max-w-[1440px] w-full m-auto px-6 pt-12 pb-14">
