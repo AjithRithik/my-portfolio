@@ -94,7 +94,7 @@ export const ContactForm = () => (
           </div>
           <div className="flex justify-center">
             <button
-              className="rounded-lg bg-blue-500 text-white px-12 py-2 w-auto"
+              className="rounded-lg bg-blue-500 text-white px-12 py-2 w-full sm:w-auto"
               type="submit"
               disabled={isSubmitting}
             >

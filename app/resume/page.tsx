@@ -38,9 +38,9 @@ const toolsSkils = [
 export default function Resume() {
   return (
     <>
-      <div className="px-14">
+      <div className="px-6 md:px-14">
         <Heading title="Resume" />
-        <div className="grid grid-cols-2 mt-12 gap-6">
+        <div className="grid sm:grid-cols-2 mt-12 gap-6">
           <div className="flex flex-col gap-6">
             <div className="flex gap-2 text-2xl font-medium items-center">
               <div className="text-blue-400 w-8 text-3xl">
@@ -117,12 +117,12 @@ export default function Resume() {
           </div>
         </div>
       </div>
-      <div className="mt-6 bg-gray-100 px-14 py-6 rounded-sm">
+      <div className="mt-6 bg-gray-100 px-6 md:px-14 py-6 rounded-sm">
         <div className="my-6">
           <div className="text-center text-xl font-medium">
             Programming Languages
           </div>
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
             <Progressbar skill="HTML" rating={95} />
             <Progressbar skill="CSS/CSS3 (sass)" rating={90} />
             <Progressbar skill="Javascript" rating={85} />
@@ -135,7 +135,7 @@ export default function Resume() {
           <div className="text-center text-xl font-medium">
             Libraries & Frameworks
           </div>
-          <div className="grid grid-cols-3 gap-6 mt-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
             <Progressbar skill="React js" rating={90} />
             <Progressbar skill="Next.js" rating={95} />
             <Progressbar skill="Angular" rating={80} />
@@ -151,7 +151,7 @@ export default function Resume() {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-2 mt-6 px-14 py-6 gap-8">
+      <div className="grid sm:grid-cols-2 mt-6 px-6 md:px-14 py-6 gap-8">
         <div className="flex flex-col gap-4">
           <div className="text-lg font-medium">
             Tools | Services | Database | CMS

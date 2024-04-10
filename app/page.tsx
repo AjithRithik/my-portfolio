@@ -54,9 +54,9 @@ const whatIDo: WhatIDoProps[] = [
 export default function Home() {
   return (
     <>
-      <div className="px-14">
+      <div className="px-6 md:px-14">
         <Heading title="About" />
-        <div className="text-gray-600 text-justify">
+        <div className="text-gray-600 text-justify text-sm md:text-base">
           <p>
             Hey there{" "}
             <MdWavingHand className="text-yellow-600 inline-block text-xl -mt-1" />
@@ -77,9 +77,9 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <div className="mt-4 mb-6 px-14">
+      <div className="mt-4 mb-6 px-6 md:px-14">
         <div className="text-2xl font-semibold mb-6">What I do!</div>
-        <div className="w-full grid grid-cols-2 justify-between gap-2 flex-wrap">
+        <div className="w-full grid md:grid-cols-2 justify-between gap-2 flex-wrap">
           {whatIDo?.map((activity, index) => (
             <WhatIDo key={index} {...activity} />
           ))}

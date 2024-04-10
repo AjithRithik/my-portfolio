@@ -57,9 +57,9 @@ const projects = [
 
 export default function Work() {
   return (
-    <div className="px-14">
+    <div className="px-6 md:px-14">
       <Heading title="Portfolio" />
-      <div className="mt-12 grid grid-cols-2 gap-6">
+      <div className="mt-12 grid md:grid-cols-2 gap-6">
         {projects?.map((project,index)=> (
            <PortfolioCard
            key={index}

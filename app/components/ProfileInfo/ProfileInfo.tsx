@@ -25,8 +25,8 @@ const socialInfo = [
 ];
 
 export const ProfileInfo = () => (
-  <div className="w-full px-7 py-7 flex flex-col items-center gap-4">
-    <div className="relative h-44 w-[60%] rounded-xl bg-red-300 overflow-hidden -m-36">
+  <div className="w-full px-4 lg:px-7 py-7 flex flex-col items-center gap-4">
+    <div className="relative h-40 md:h-60 lg:h-44 w-40 md:w-60 lg:w-[60%] rounded-xl bg-red-300 overflow-hidden lg:-m-36">
       <Image
         src="/profile-image.png"
         alt="Ajith kumar"
@@ -34,7 +34,7 @@ export const ProfileInfo = () => (
         className="object-cover"
       />
     </div>
-    <div className="font-semibold text-2xl capitalize mt-36">
+    <div className="font-semibold text-lg md:text-xl lg:text-2xl capitalize lg:mt-36">
       Ajith kumar Susai A
     </div>
     <div className="text-sm font-semibold bg-gray-100 px-4 py-1 rounded-full">
@@ -110,7 +110,7 @@ export const ProfileInfo = () => (
     </div>
 
     <div className="mt-6">
-      <button className="flex gap-1 text-white items-center bg-blue-500 font-semibold text-lg px-4 py-2 rounded-xl">
+      <button className="flex gap-1 text-white items-center bg-blue-500 font-semibold md:text-lg px-4 py-2 rounded-xl">
         <div>
           <FaCloudDownloadAlt />
         </div>
