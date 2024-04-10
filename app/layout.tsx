@@ -27,7 +27,7 @@ export default function RootLayout({
           <div className="max-w-[1440px] w-full m-auto px-4 lg:px-6 pt-12 pb-14">
             <Header />
             <div className="flex flex-col lg:flex-row gap-8 w-full justify-center">
-              <div className="w-full lg:w-[340px] bg-white rounded-xl h-max lg:sticky top-[160px]">
+              <div className="w-full lg:w-[300px] xl:w-[340px] bg-white rounded-xl h-max lg:sticky top-[160px]">
                 <ProfileInfo />
               </div>
               <div className="flex flex-1 bg-white rounded-xl lg:sticky top-[180px]">

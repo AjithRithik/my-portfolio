@@ -26,7 +26,7 @@ const socialInfo = [
 
 export const ProfileInfo = () => (
   <div className="w-full px-4 lg:px-7 py-7 flex flex-col items-center gap-4">
-    <div className="relative h-40 md:h-60 lg:h-44 w-40 md:w-60 lg:w-[60%] rounded-xl bg-red-300 overflow-hidden lg:-m-36">
+    <div className="relative h-40 md:h-60 xl:h-44 w-40 md:w-60 xl:w-[60%] rounded-xl bg-red-300 overflow-hidden xl:-m-36">
       <Image
         src="/profile-image.png"
         alt="Ajith kumar"
@@ -34,7 +34,7 @@ export const ProfileInfo = () => (
         className="object-cover"
       />
     </div>
-    <div className="font-semibold text-lg md:text-xl lg:text-2xl capitalize lg:mt-36">
+    <div className="font-semibold text-lg md:text-xl lg:text-2xl capitalize xl:mt-36">
       Ajith kumar Susai A
     </div>
     <div className="text-sm font-semibold bg-gray-100 px-4 py-1 rounded-full">
@@ -60,7 +60,7 @@ export const ProfileInfo = () => (
         >
           <HiOutlineDevicePhoneMobile className="text-red-400 text-2xl" />
         </div>
-        <div className="flex flex-col gap-1 justify-center">
+        <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Phone</div>
           <div className="font-medium text-[13px] text-gray-800">
             +91 87 54 789957
@@ -74,9 +74,9 @@ export const ProfileInfo = () => (
         >
           <CiMail className="text-green-800 text-2xl" />
         </div>
-        <div className="flex flex-col gap-1 justify-center">
+        <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Mail</div>
-          <div className="font-medium text-[13px] text-gray-800">
+          <div className="font-medium text-[13px] text-gray-800 break-all">
             official.ajith171995@gmail.com
           </div>
         </div>
@@ -88,7 +88,7 @@ export const ProfileInfo = () => (
         >
           <FaLocationDot className="text-red-300 text-2xl" />
         </div>
-        <div className="flex flex-col gap-1 justify-center">
+        <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Location</div>
           <div className="font-medium text-[13px] text-gray-800">Madurai</div>
         </div>
@@ -100,7 +100,7 @@ export const ProfileInfo = () => (
         >
           <FaCalendarAlt className="text-purple-600 text-2xl" />
         </div>
-        <div className="flex flex-col gap-1 justify-center">
+        <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Birthday</div>
           <div className="font-medium text-[13px] text-gray-800">
             June 17, 1995

@@ -16,55 +16,119 @@ export const Slider = () => (
     loop={true}
     slidesPerView={4}
     modules={[Autoplay]}
+    breakpoints={{
+      280: {
+        slidesPerView: 1,
+      },
+      420: {
+        slidesPerView: 2,
+      },
+      576: {
+        slidesPerView: 3,
+      },
+      768: {
+        slidesPerView: 4,
+      },
+    }}
   >
     <SwiperSlide key={1}>
       <div className="relative h-20">
-        <Image src="/projects/nrl.jpg" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/nrl.jpg"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={2}>
       <div className="relative h-20">
-        <Image src="/projects/afl.png" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/afl.png"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={3}>
       <div className="relative h-20">
-        <Image src="/projects/just-act.png" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/just-act.png"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={4}>
       <div className="relative h-20">
-        <Image src="/projects/medzlegal.png" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/medzlegal.png"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={5}>
       <div className="relative h-20">
-        <Image src="/projects/purblebird.webp" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/purblebird.webp"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={6}>
       <div className="relative h-14">
-        <Image src="/projects/blu.svg" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/blu.svg"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={7}>
       <div className="relative h-20 w-28">
-        <Image src="/projects/pulze.svg" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/pulze.svg"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={8}>
       <div className="relative h-20">
-        <Image src="/projects/ctyt-logo.png" alt="nrl client" fill className="object-contain" />
+        <Image
+          src="/projects/ctyt-logo.png"
+          alt="nrl client"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={9}>
       <div className="relative h-16">
-        <Image src="/projects/hey.svg" alt="hey hey" fill className="object-contain" />
+        <Image
+          src="/projects/hey.svg"
+          alt="hey hey"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
     <SwiperSlide key={10}>
       <div className="relative h-16">
-        <Image src="/projects/frankdarling.svg" alt="hey hey" fill className="object-contain" />
+        <Image
+          src="/projects/frankdarling.svg"
+          alt="hey hey"
+          fill
+          className="object-contain"
+        />
       </div>
     </SwiperSlide>
   </Swiper>
