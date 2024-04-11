@@ -36,7 +36,7 @@ export const Header = () => {
         <div
           className={`fixed ${
             isOpen ? "right-0" : "-right-[100%]"
-          } h-full w-32 z-20 top-0 justify-center right-0 p-5 pt-0 bg-white transition-all overflow-auto`}
+          } h-full w-32 z-20 top-0 justify-center p-5 pt-0 bg-white transition-all overflow-auto`}
           style={{ boxShadow: "0 4px 6px rgba(0,0,0,.08)" }}
         >
           <div className="absolute top-5 right-4">
