@@ -28,7 +28,7 @@ const projects = [
     title: "Hey Hey",
   },
   {
-    image: "/works/ctyt.webp",
+    image: "/works/cheftoyourtable.webp",
     role: "Senior Frontend Developer @ f22labs",
     imageBg: 'bg-gray-800',
     title: "Chef To Your Table",
