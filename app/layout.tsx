@@ -30,8 +30,13 @@ export default function RootLayout({
               <div className="w-full lg:w-[300px] xl:w-[340px] bg-white rounded-xl h-max lg:sticky top-[160px]">
                 <ProfileInfo />
               </div>
-              <div className="flex flex-1 bg-white rounded-xl lg:sticky top-[180px]">
+              <div className="flex flex-1 flex-col bg-white rounded-xl lg:sticky top-[180px]">
                 <div className="py-14 relative w-full">{children}</div>
+                <div className="bg-green-100 py-6 text-center font-semibold w-full text-xs sm:text-sm">
+                  © 2024 All Rights Reserved with
+                  <span className="text-red-600 mx-2">&#10084;</span>
+                  by Ajithkumar.
+                </div>
               </div>
               <div className="bg-white hidden xl:block w-28 p-4 rounded-xl h-max sticky top-[30px] justify-center">
                 <Navigation />
