@@ -110,12 +110,14 @@ export const ProfileInfo = () => (
     </div>
 
     <div className="mt-6">
+      <a href="/resume/Ajith_Resume.pdf" download target="_blank">
       <button className="flex gap-1 text-white items-center bg-blue-500 font-semibold md:text-lg px-4 py-2 rounded-xl">
         <div>
           <FaCloudDownloadAlt />
         </div>
         <div>Download Resume</div>
       </button>
+      </a>
     </div>
   </div>
 );
