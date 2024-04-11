@@ -90,7 +90,7 @@ export const ProfileInfo = () => (
         </div>
         <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Location</div>
-          <div className="font-medium text-[13px] text-gray-800">Madurai</div>
+          <div className="font-medium text-[13px] text-gray-800">Bengaluru</div>
         </div>
       </div>
       <div className="flex gap-3 py-2 items-center">

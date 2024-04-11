@@ -15,6 +15,7 @@ export const Slider = () => (
     autoplay={true}
     loop={true}
     slidesPerView={4}
+    spaceBetween={40}
     modules={[Autoplay]}
     breakpoints={{
       280: {
