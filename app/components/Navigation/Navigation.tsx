@@ -45,6 +45,7 @@ export const Navigation = () => {
         <Link
           href={link.href}
           key={index}
+          scroll={true}
           className={`${
             currentPath === link?.href
               ? "bg-blue-400 text-white"
