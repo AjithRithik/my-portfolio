@@ -82,26 +82,6 @@ export const Slider = () => (
       </div>
     </SwiperSlide>
     <SwiperSlide key={6}>
-      <div className="relative h-14">
-        <Image
-          src="/projects/blu.svg"
-          alt="nrl client"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </SwiperSlide>
-    <SwiperSlide key={7}>
-      <div className="relative h-20 w-28">
-        <Image
-          src="/projects/pulze.svg"
-          alt="nrl client"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </SwiperSlide>
-    <SwiperSlide key={8}>
       <div className="relative h-20">
         <Image
           src="/projects/ctyt-logo.png"
@@ -111,7 +91,7 @@ export const Slider = () => (
         />
       </div>
     </SwiperSlide>
-    <SwiperSlide key={9}>
+    <SwiperSlide key={7}>
       <div className="relative h-16">
         <Image
           src="/projects/hey.svg"
@@ -121,7 +101,7 @@ export const Slider = () => (
         />
       </div>
     </SwiperSlide>
-    <SwiperSlide key={10}>
+    <SwiperSlide key={8}>
       <div className="relative h-16">
         <Image
           src="/projects/frankdarling.svg"
