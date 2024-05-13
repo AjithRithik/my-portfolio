@@ -9,13 +9,15 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Ajith Portfolio",
-  description: "My portfolio",
+  description:
+    "With over 7 years in enterprise application development, I excel in advanced JavaScript and reusable UI components, always seeking new challenges and bringing creativity to every project.",
   icons: [{ rel: "icon", url: "/my-logo.png" }],
   openGraph: {
     title: "Ajith Portfolio",
     description:
       "With over 7 years in enterprise application development, I excel in advanced JavaScript and reusable UI components, always seeking new challenges and bringing creativity to every project.",
-    images: ["/portfolio.png"],
+    images: ["https://ak-ajith-portfolio.vercel.app/portfolio.png"],
+    url: "https://ak-ajith-portfolio.vercel.app/",
   },
 };
 
