@@ -18,6 +18,7 @@ export const metadata: Metadata = {
       "With over 7 years in enterprise application development, I excel in advanced JavaScript and reusable UI components, always seeking new challenges and bringing creativity to every project.",
     images: ["https://ak-ajith-portfolio.vercel.app/portfolio.png"],
     url: "https://ak-ajith-portfolio.vercel.app/",
+    type: "website",
   },
 };
 
