@@ -21,7 +21,7 @@ const socialInfo = [
     href: "https://www.instagram.com/ajith_rithik/",
     iconColor: "text-red-400 hover:text-white",
     icon: <GrInstagram />,
-  }
+  },
 ];
 
 export const ProfileInfo = () => (
@@ -29,16 +29,16 @@ export const ProfileInfo = () => (
     <div className="relative h-40 md:h-60 xl:h-44 w-40 md:w-60 xl:w-[60%] rounded-xl bg-red-300 overflow-hidden xl:-m-36">
       <Image
         src="/profile-image.png"
-        alt="Ajith kumar"
+        alt="Ajith Kumar"
         fill
         className="object-cover"
       />
     </div>
     <div className="font-semibold text-lg md:text-xl lg:text-2xl capitalize xl:mt-36">
-      Ajith kumar Susai A
+      Ajith Kumar Susai A
     </div>
     <div className="text-sm font-semibold bg-gray-100 px-4 py-1 rounded-full">
-      Frontend Developer
+      Front-End Developer
     </div>
     <div className="flex gap-5">
       {socialInfo?.map((info, index) => (
@@ -75,7 +75,7 @@ export const ProfileInfo = () => (
           <CiMail className="text-green-800 text-2xl" />
         </div>
         <div className="flex flex-col flex-1 gap-1 justify-center">
-          <div className="text-xs">Mail</div>
+          <div className="text-xs">Email</div>
           <div className="font-medium text-[13px] text-gray-800 break-all">
             official.ajith171995@gmail.com
           </div>
@@ -90,7 +90,9 @@ export const ProfileInfo = () => (
         </div>
         <div className="flex flex-col flex-1 gap-1 justify-center">
           <div className="text-xs">Location</div>
-          <div className="font-medium text-[13px] text-gray-800">Bengaluru</div>
+          <div className="font-medium text-[13px] text-gray-800">
+            Coimbatore, Tamil Nadu
+          </div>
         </div>
       </div>
       <div className="flex gap-3 py-2 items-center">
@@ -110,13 +112,17 @@ export const ProfileInfo = () => (
     </div>
 
     <div className="mt-6">
-      <a href="/resume/Ajith_Resume.pdf" download target="_blank">
-      <button className="flex gap-1 text-white items-center bg-blue-500 font-semibold md:text-lg px-4 py-2 rounded-xl">
-        <div>
-          <FaCloudDownloadAlt />
-        </div>
-        <div>Download Resume</div>
-      </button>
+      <a
+        href="/resume/Ajith Kumar Front-End Developer with 9.5+ Years Experience in Angular, React & Next.js.pdf"
+        download
+        target="_blank"
+      >
+        <button className="flex gap-1 text-white items-center bg-blue-500 font-semibold md:text-lg px-4 py-2 rounded-xl">
+          <div>
+            <FaCloudDownloadAlt />
+          </div>
+          <div>Download Resume</div>
+        </button>
       </a>
     </div>
   </div>

@@ -8,14 +8,14 @@ import { Navigation } from "./components/Navigation";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ajith Portfolio",
+  title: "Ajith Kumar | Portfolio",
   description:
-    "With over 7 years in enterprise application development, I excel in advanced JavaScript and reusable UI components, always seeking new challenges and bringing creativity to every project.",
+    "Hey there, I'm Ajith Kumar. With over 9.5 years immersed in enterprise application product development, I have mastered advanced JavaScript methodologies and crafted reusable UI components for robust user interfaces. My journey spans diverse technologies, driven by a passion for learning and creativity. Always seeking new challenges and adding a dash of flair to every project.",
   icons: [{ rel: "icon", url: "/my-logo.png" }],
   openGraph: {
-    title: "Ajith Portfolio",
+    title: "Ajith Kumar | Portfolio",
     description:
-      "With over 7 years in enterprise application development, I excel in advanced JavaScript and reusable UI components, always seeking new challenges and bringing creativity to every project.",
+      "Hey there, I'm Ajith Kumar. With over 9.5 years immersed in enterprise application product development, I have mastered advanced JavaScript methodologies and crafted reusable UI components for robust user interfaces. My journey spans diverse technologies, driven by a passion for learning and creativity. Always seeking new challenges and adding a dash of flair to every project.",
     images: ["https://ak-ajith-portfolio.vercel.app/portfolio.png"],
     url: "https://ak-ajith-portfolio.vercel.app/",
     type: "website",
@@ -42,9 +42,9 @@ export default function RootLayout({
               <div className="flex flex-1 flex-col bg-white rounded-xl lg:sticky top-[180px]">
                 <div className="py-14 relative w-full">{children}</div>
                 <div className="bg-green-100 py-6 text-center font-semibold w-full text-xs sm:text-sm">
-                  © 2024 All Rights Reserved with
+                  © 2024 All rights reserved with
                   <span className="text-red-600 mx-2">&#10084;</span>
-                  by Ajithkumar.
+                  by Ajith Kumar.
                 </div>
               </div>
               <div className="bg-white hidden xl:block w-28 p-4 rounded-xl h-max sticky top-[30px] justify-center">
