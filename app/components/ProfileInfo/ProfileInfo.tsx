@@ -38,7 +38,7 @@ export const ProfileInfo = () => (
       Ajith Kumar Susai A
     </div>
     <div className="text-sm font-semibold bg-gray-100 px-4 py-1 rounded-full">
-      Front-End Developer
+      Specialist Sofware Engineer
     </div>
     <div className="flex gap-5">
       {socialInfo?.map((info, index) => (
