@@ -113,7 +113,7 @@ export const ProfileInfo = () => (
 
     <div className="mt-6">
       <a
-        href="/resume/Ajith Kumar Front-End Developer with 9.5+ Years Experience in Angular, React & Next.js.pdf"
+        href="/resume/Ajith_Kumar_Front-End_Developer_with_9.5+_Years_Experience_in_Angular,_React_&_NextJs.pdf"
         download
         target="_blank"
       >
