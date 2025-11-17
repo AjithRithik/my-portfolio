@@ -111,7 +111,7 @@ export const ProfileInfo = () => (
       </div>
     </div>
 
-    <div className="mt-6">
+    <div className="mt-6 hidden">
       <a
         href="/resume/Ajith Kumar_product Developer with 9.5+ Years Experience in Angular, React & Next.js.pdf"
         download
