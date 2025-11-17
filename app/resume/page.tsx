@@ -138,6 +138,8 @@ export default function Resume() {
             <Progressbar skill="TypeScript" rating={80} />
             <Progressbar skill="Node.js" rating={60} />
             <Progressbar skill="GraphQL" rating={70} />
+            <Progressbar skill="SQL" rating={60} />
+            <Progressbar skill="MongoDB" rating={50} />
           </div>
         </div>
         <div className="my-8">
@@ -148,6 +150,7 @@ export default function Resume() {
             <Progressbar skill="React.js" rating={90} />
             <Progressbar skill="Next.js" rating={95} />
             <Progressbar skill="Angular" rating={80} />
+            <Progressbar skill="Nest.js" rating={50} />
             <Progressbar skill="jQuery" rating={60} />
             <Progressbar skill="Axios" rating={70} />
             <Progressbar skill="Apollo" rating={60} />
