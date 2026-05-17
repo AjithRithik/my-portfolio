@@ -1,7 +1,7 @@
 import { MdWork } from "react-icons/md";
-import { Heading } from "../components/Heading";
+import { Heading } from "../../components/Heading";
 import { FaUserGraduate } from "react-icons/fa";
-import { Progressbar } from "../components/Progressbar";
+import { Progressbar } from "../../components/Progressbar";
 
 const devOpsTools = [
   "Git / Bash / Shells",

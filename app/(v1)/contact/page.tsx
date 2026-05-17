@@ -1,9 +1,9 @@
 "use client";
 
 import Lottie from "lottie-react";
-import { Heading } from "../components/Heading";
-import ContactData from "../contact.json";
-import { ContactForm } from "../components/ContactForm";
+import { Heading } from "../../components/Heading";
+import ContactData from "../../contact.json";
+import { ContactForm } from "../../components/ContactForm";
 
 export default function Contact() {
   return (

@@ -1,10 +1,13 @@
 "use client";
 
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
 import { FaDraftingCompass } from "react-icons/fa";
 import { MdChat, MdWavingHand } from "react-icons/md";
-import { Slider } from "./components/Slider";
-import { Heading } from "./components/Heading";
-import { WhatIDo, WhatIDoProps } from "./components/WhatIDo";
+import { Slider } from "../components/Slider";
+import { Heading } from "../components/Heading";
+import { WhatIDo, WhatIDoProps } from "../components/WhatIDo";
 import { LiaLaptopCodeSolid } from "react-icons/lia";
 import {
   SiContentful,
@@ -52,6 +55,18 @@ const whatIDo: WhatIDoProps[] = [
 ];
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    if (process.env.NEXT_PUBLIC_PORTFOLIO_VERSION === "v2") {
+      router.replace("/v2");
+    }
+  }, [router]);
+
+  if (process.env.NEXT_PUBLIC_PORTFOLIO_VERSION === "v2") {
+    return null; // Return null to avoid flashing V1 content
+  }
+
   return (
     <>
       <div className="px-6 md:px-14">

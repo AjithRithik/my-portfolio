@@ -1,0 +1,206 @@
+backend:
+  name: github
+  repo: AjithRithik/my-portfolio
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  # ── Home Page ────────────────────────────────────────────────────────────────
+  - name: home
+    label: "Home Page"
+    files:
+      - name: home
+        label: "Home Content"
+        file: public/admin/content/home.md
+        fields:
+          - name: hero
+            label: Hero Section
+            widget: object
+            fields:
+              - { name: available, label: "Available for Projects", widget: boolean }
+              - { name: availableText, label: "Badge Text", widget: string }
+              - { name: headline, label: "Headline Start", widget: string }
+              - { name: headlineHighlight, label: "Highlighted Word", widget: string }
+              - { name: headlineEnd, label: "Headline End", widget: string }
+              - { name: bio, label: "Bio Text", widget: text }
+              - { name: yearsExperience, label: "Years Experience", widget: string }
+              - { name: ctaPrimary, label: "Primary CTA", widget: string }
+              - { name: ctaSecondary, label: "Secondary CTA", widget: string }
+          - name: profile
+            label: Profile Card
+            widget: object
+            fields:
+              - { name: phone, label: Phone, widget: string }
+              - { name: location, label: Location, widget: string }
+              - { name: email, label: Email, widget: string }
+              - { name: birthday, label: Birthday, widget: string }
+          - name: coreTools
+            label: Core Tools
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - name: accent
+                label: Color Accent
+                widget: select
+                options: [primary, secondary]
+          - name: services
+            label: Services
+            widget: list
+            fields:
+              - { name: icon, label: "Material Icon Name", widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: tags, label: Tags, widget: list }
+              - name: accent
+                label: Color Accent
+                widget: select
+                options: [primary, secondary]
+          - name: social
+            label: Social Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: "Material Icon Name", widget: string }
+          - { name: downloadCvUrl, label: "Download CV URL", widget: string }
+
+  # ── Resume Page ──────────────────────────────────────────────────────────────
+  - name: resume
+    label: "Resume Page"
+    files:
+      - name: resume
+        label: "Resume Content"
+        file: public/admin/content/resume.md
+        fields:
+          - { name: name, label: "Full Name", widget: string }
+          - { name: role, label: Role, widget: string }
+          - { name: phone, label: Phone, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: location, label: Location, widget: string }
+          - { name: profileImage, label: "Profile Image", widget: image }
+          - { name: downloadResumeUrl, label: "Resume PDF URL", widget: string }
+          - name: social
+            label: Social Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: "Material Icon Name", widget: string }
+          - name: experience
+            label: Experience
+            widget: list
+            fields:
+              - { name: period, label: Period, widget: string }
+              - { name: role, label: Role, widget: string }
+              - { name: company, label: Company, widget: string }
+              - { name: description, label: Description, widget: text, required: false }
+              - { name: isCurrent, label: "Is Current Role", widget: boolean, default: false }
+          - name: education
+            label: Education
+            widget: list
+            fields:
+              - { name: period, label: Period, widget: string }
+              - { name: degree, label: Degree, widget: string }
+              - { name: institution, label: Institution, widget: string }
+          - name: skillGroups
+            label: Skill Groups
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: icon, label: "Material Icon", widget: string }
+              - name: accent
+                label: Accent Color
+                widget: select
+                options: [primary, secondary, tertiary]
+              - name: skills
+                label: Skills
+                widget: list
+                fields:
+                  - { name: name, label: Skill Name, widget: string }
+                  - { name: level, label: "Level (0-100)", widget: number }
+          - name: devopsTools
+            label: "DevOps Tools"
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - name: accent
+                label: Accent
+                widget: select
+                options: [primary, secondary, tertiary]
+          - name: terminalQuote
+            label: Terminal Quote
+            widget: object
+            fields:
+              - { name: experience, label: Experience, widget: string }
+              - { name: philosophy, label: Philosophy, widget: string }
+              - { name: motivation, label: Motivation, widget: string }
+              - { name: boundaries, label: Boundaries, widget: string }
+
+  # ── Work Hero ────────────────────────────────────────────────────────────────
+  - name: work_hero
+    label: "Work Page Hero"
+    files:
+      - name: work_hero
+        label: "Work Hero Content"
+        file: public/admin/content/work-hero.md
+        fields:
+          - name: hero
+            label: Hero
+            widget: object
+            fields:
+              - { name: subtitle, label: Subtitle, widget: string }
+              - { name: headline, label: Headline, widget: string }
+              - { name: description, label: Description, widget: text }
+
+  # ── Projects ─────────────────────────────────────────────────────────────────
+  - name: projects
+    label: Projects
+    folder: public/admin/content/work
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: description, label: Description, widget: text }
+      - { name: image, label: "Project Image", widget: image, required: false }
+      - { name: tags, label: Tags, widget: list }
+      - name: category
+        label: Categories
+        widget: select
+        multiple: true
+        options: ["All", "React / Next.js", "Angular", "Backend / API", "CMS / Headless"]
+      - name: colSpan
+        label: "Grid Column Span"
+        widget: select
+        options: [4, 8, 12]
+      - { name: featured, label: Featured, widget: boolean, default: false }
+      - { name: caseStudyUrl, label: "Case Study URL", widget: string, required: false }
+
+  # ── Contact Page ─────────────────────────────────────────────────────────────
+  - name: contact
+    label: "Contact Page"
+    files:
+      - name: contact
+        label: "Contact Content"
+        file: public/admin/content/contact.md
+        fields:
+          - name: availability
+            label: Availability
+            widget: object
+            fields:
+              - { name: available, label: Available, widget: boolean }
+              - { name: label, label: "Badge Label", widget: string }
+          - { name: headline, label: Headline, widget: string }
+          - { name: description, label: Description, widget: text }
+          - { name: phone, label: Phone, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: location, label: Location, widget: string }
+          - name: social
+            label: Social Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: "Material Icon Name", widget: string }
+          - { name: terminalMotivation, label: "Terminal Quote", widget: text }

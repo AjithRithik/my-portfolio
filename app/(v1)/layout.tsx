@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header } from "./components/Header";
-import { ProfileInfo } from "./components/ProfileInfo";
-import { Navigation } from "./components/Navigation";
+import "../globals.css";
+import { Header } from "../components/Header";
+import { ProfileInfo } from "../components/ProfileInfo";
+import { Navigation } from "../components/Navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ak-ajith-portfolio.vercel.app"),
   title: "Ajith Kumar | Portfolio",
   description:
     "Hey there, I'm Ajith Kumar. With over 9.5 years immersed in enterprise application product development, I have mastered advanced JavaScript methodologies and crafted reusable UI components for robust user interfaces. My journey spans diverse technologies, driven by a passion for learning and creativity. Always seeking new challenges and adding a dash of flair to every project.",

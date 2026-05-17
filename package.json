@@ -11,6 +11,7 @@
   "dependencies": {
     "@types/nodemailer": "^6.4.14",
     "formik": "^2.4.5",
+    "gray-matter": "^4.0.3",
     "hamburger-react": "^2.5.0",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",

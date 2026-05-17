@@ -1,5 +1,5 @@
-import { Heading } from "../components/Heading";
-import { PortfolioCard } from "../components/PortfolioCard/PortfolioCard";
+import { Heading } from "../../components/Heading";
+import { PortfolioCard } from "../../components/PortfolioCard/PortfolioCard";
 
 const projects = [
   {
