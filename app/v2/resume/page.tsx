@@ -236,7 +236,7 @@ export default async function ResumePage() {
                   key={group.title}
                   direction="up"
                   delay={(index % 3) * 50}
-                  className={group.skills.length === 2 ? "md:col-span-2" : ""}
+                  className={group.skills.length > 3 || group.skills.length === 2 ? "md:col-span-2" : ""}
                 >
                   <div
                     className="w-full h-full bg-[rgba(15,23,42,0.6)] backdrop-blur-[12px] border border-[rgba(30,41,59,0.5)] hover:border-[#c0c1ff] hover:shadow-[0_0_20px_rgba(192,193,255,0.15)] p-6 rounded-xl transition-all duration-300 ease-in-out hover:shadow-[0_0_20px_rgba(192,193,255,0.15)] hover:!border-[#c0c1ff] flex flex-col"
