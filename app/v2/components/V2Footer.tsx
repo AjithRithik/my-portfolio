@@ -1,18 +1,11 @@
-import Link from "next/link";
-import type { SocialLink } from "@/types/cms";
+import type { SitePageData, SocialLink } from "@/types/cms";
 
 interface V2FooterProps {
-  social?: SocialLink[];
+  footer: SitePageData["footer"];
+  social: SocialLink[];
 }
 
-const defaultSocial: SocialLink[] = [
-  { label: "LinkedIn", url: "https://www.linkedin.com/in/ajithkumaroffical/", icon: "link" },
-  { label: "GitHub", url: "https://github.com/AjithRithik", icon: "code" },
-  { label: "Instagram", url: "https://www.instagram.com/ajith_rithik/", icon: "photo_camera" },
-  { label: "Contact", url: "/v2/contact", icon: "alternate_email" },
-];
-
-export default function V2Footer({ social = defaultSocial }: V2FooterProps) {
+export default function V2Footer({ footer, social }: V2FooterProps) {
   return (
     <footer
       className="w-full pt-8 pb-24 md:pb-8 border-t"
@@ -23,14 +16,12 @@ export default function V2Footer({ social = defaultSocial }: V2FooterProps) {
     >
       <div className="max-w-v2-container mx-auto px-v2-gutter flex flex-col md:flex-row justify-between items-center gap-4">
         <div className="text-center md:text-left">
-          <div
-            className="text-v2-headline-md font-bold italic text-v2-primary-alt mb-1 font-v2-display"
-          >
-            Ajithkumar
+          <div className="text-v2-headline-md font-bold italic text-v2-primary-alt mb-1 font-v2-display">
+            {footer.brandName}
           </div>
           <p className="text-v2-on-surface-variant text-sm font-v2-body">
-            © {new Date().getFullYear()} Ajith Kumar.{" "}
-            <span className="text-v2-primary">Built with Precision.</span>
+            &copy; {new Date().getFullYear()} {footer.copyrightName}.{" "}
+            <span className="text-v2-primary">{footer.builtWithText}</span>
           </p>
         </div>
         <nav className="flex gap-6 flex-wrap justify-center">

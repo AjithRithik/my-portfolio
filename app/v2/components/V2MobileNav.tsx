@@ -2,15 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { NavigationItem } from "@/types/cms";
 
-const navItems = [
-  { label: "About", href: "/v2", icon: "person" },
-  { label: "Resume", href: "/v2/resume", icon: "description" },
-  { label: "Work", href: "/v2/my-work", icon: "business_center" },
-  { label: "Contact", href: "/v2/contact", icon: "alternate_email" },
-];
+interface V2MobileNavProps {
+  navItems: NavigationItem[];
+}
 
-export default function V2MobileNav() {
+export default function V2MobileNav({ navItems }: V2MobileNavProps) {
   const pathname = usePathname();
 
   const isActive = (href: string) => {

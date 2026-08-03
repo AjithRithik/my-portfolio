@@ -6,6 +6,41 @@ export interface SocialLink {
   icon: string; // material-symbol name
 }
 
+export interface MetadataContent {
+  title: string;
+  description: string;
+}
+
+export interface SiteMetadataContent extends MetadataContent {
+  siteUrl: string;
+  ogTitle: string;
+  ogDescription: string;
+  ogImage: string;
+}
+
+export interface NavigationItem {
+  label: string;
+  href: string;
+  icon: string;
+}
+
+export interface SitePageData {
+  brandName: string;
+  profileImage: string;
+  profileImageAlt: string;
+  headerCtaLabel: string;
+  headerCtaUrl: string;
+  mobileMenuLabel: string;
+  navLinks: NavigationItem[];
+  footer: {
+    brandName: string;
+    copyrightName: string;
+    builtWithText: string;
+  };
+  social: SocialLink[];
+  metadata: SiteMetadataContent;
+}
+
 export interface Service {
   icon: string;
   title: string;
@@ -59,6 +94,7 @@ export interface ProfileCard {
 
 // ─── Home Page ───────────────────────────────────────────────────────────────
 export interface HomePageData {
+  metadata: MetadataContent;
   hero: {
     available: boolean;
     availableText: string;
@@ -66,11 +102,26 @@ export interface HomePageData {
     headlineHighlight: string;
     headlineEnd: string;
     bio: string;
+    bioHighlight: string;
     yearsExperience: string;
     ctaPrimary: string;
     ctaSecondary: string;
+    profileImage: string;
+    profileImageAlt: string;
   };
   profile: ProfileCard;
+  sections: {
+    identityTitle: string;
+    phoneLabel: string;
+    locationLabel: string;
+    emailLabel: string;
+    birthdayLabel: string;
+    experienceLabel: string;
+    experienceDescription: string;
+    toolkitTitle: string;
+    servicesTitleStart: string;
+    servicesTitleHighlight: string;
+  };
   coreTools: CoreTool[];
   services: Service[];
   social: SocialLink[];
@@ -79,6 +130,7 @@ export interface HomePageData {
 
 // ─── Resume Page ─────────────────────────────────────────────────────────────
 export interface ResumePageData {
+  metadata: MetadataContent;
   name: string;
   role: string;
   phone: string;
@@ -91,6 +143,23 @@ export interface ResumePageData {
   education: EducationItem[];
   skillGroups: SkillGroup[];
   devopsTools: ToolChip[];
+  labels: {
+    phoneLabel: string;
+    emailLabel: string;
+    locationLabel: string;
+    downloadResumeLabel: string;
+    experienceTitle: string;
+    educationTitle: string;
+    technicalTitle: string;
+    devopsTitle: string;
+    terminalWindowTitle: string;
+    terminalCommand: string;
+    terminalPrompt: string;
+    terminalExperienceKey: string;
+    terminalPhilosophyKey: string;
+    terminalMotivationKey: string;
+    terminalBoundariesKey: string;
+  };
   terminalQuote: {
     experience: string;
     philosophy: string;
@@ -116,16 +185,31 @@ export interface ProjectCard {
 }
 
 export interface WorkPageData {
+  metadata: MetadataContent;
   hero: {
     subtitle: string;
     headline: string;
     description: string;
+  };
+  filters: {
+    label: string;
+    category: ProjectCategory;
+  }[];
+  caseStudyLabel: string;
+  expertise: {
+    titleStart: string;
+    titleHighlight: string;
+    items: {
+      value: string;
+      label: string;
+    }[];
   };
   projects: ProjectCard[];
 }
 
 // ─── Contact Page ────────────────────────────────────────────────────────────
 export interface ContactPageData {
+  metadata: MetadataContent;
   availability: {
     available: boolean;
     label: string;
@@ -137,5 +221,30 @@ export interface ContactPageData {
   location: string;
   social: SocialLink[];
   mapImage?: string;
+  mapImageAlt: string;
+  mapTitle: string;
+  mapLocation: string;
+  contactLabels: {
+    phone: string;
+    email: string;
+    location: string;
+  };
+  form: {
+    nameLabel: string;
+    namePlaceholder: string;
+    emailLabel: string;
+    emailPlaceholder: string;
+    messageLabel: string;
+    messagePlaceholder: string;
+    submitLabel: string;
+    submittingLabel: string;
+    successMessage: string;
+    defaultErrorMessage: string;
+    networkErrorMessage: string;
+  };
+  terminalUser: string;
+  terminalHost: string;
+  terminalCommand: string;
+  terminalFile: string;
   terminalMotivation: string;
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { ContactPageData } from "@/types/cms";
 
 interface FormState {
   name: string;
@@ -10,7 +11,11 @@ interface FormState {
 
 type Status = "idle" | "loading" | "success" | "error";
 
-export default function V2ContactForm() {
+interface V2ContactFormProps {
+  copy: ContactPageData["form"];
+}
+
+export default function V2ContactForm({ copy }: V2ContactFormProps) {
   const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
   const [status, setStatus] = useState<Status>("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -39,11 +44,11 @@ export default function V2ContactForm() {
       } else {
         const data = await res.json();
         setStatus("error");
-        setErrorMsg(data?.error ?? "Something went wrong. Please try again.");
+        setErrorMsg(data?.error ?? copy.defaultErrorMessage);
       }
     } catch {
       setStatus("error");
-      setErrorMsg("Network error. Please check your connection and try again.");
+      setErrorMsg(copy.networkErrorMessage);
     }
   };
 
@@ -56,7 +61,7 @@ export default function V2ContactForm() {
             htmlFor="contact-name"
             className="text-[12px] uppercase tracking-widest text-v2-primary-alt font-v2-mono"
           >
-            Name
+            {copy.nameLabel}
           </label>
           <input
             id="contact-name"
@@ -64,7 +69,7 @@ export default function V2ContactForm() {
             type="text"
             value={form.name}
             onChange={handleChange}
-            placeholder="John Doe"
+            placeholder={copy.namePlaceholder}
             required
             className="bg-transparent border-b border-v2-outline-variant-alt py-4 focus:outline-none transition-colors text-v2-on-surface placeholder:text-v2-outline-alt/50"
             style={{
@@ -80,7 +85,7 @@ export default function V2ContactForm() {
             htmlFor="contact-email"
             className="text-[12px] uppercase tracking-widest text-v2-primary-alt font-v2-mono"
           >
-            Email
+            {copy.emailLabel}
           </label>
           <input
             id="contact-email"
@@ -88,7 +93,7 @@ export default function V2ContactForm() {
             type="email"
             value={form.email}
             onChange={handleChange}
-            placeholder="john@example.com"
+            placeholder={copy.emailPlaceholder}
             required
             className="bg-transparent border-b border-v2-outline-variant-alt py-4 focus:outline-none transition-colors text-v2-on-surface placeholder:text-v2-outline-alt/50"
             style={{
@@ -107,14 +112,14 @@ export default function V2ContactForm() {
           htmlFor="contact-message"
           className="text-[12px] uppercase tracking-widest text-v2-primary-alt font-v2-mono"
         >
-          Message
+          {copy.messageLabel}
         </label>
         <textarea
           id="contact-message"
           name="message"
           value={form.message}
           onChange={handleChange}
-          placeholder="How can I help you?"
+          placeholder={copy.messagePlaceholder}
           rows={4}
           required
           className="bg-transparent border-b border-v2-outline-variant-alt py-4 focus:outline-none transition-colors text-v2-on-surface placeholder:text-v2-outline-alt/50 resize-none"
@@ -153,11 +158,11 @@ export default function V2ContactForm() {
           {status === "loading" ? (
             <>
               <span className="material-symbols-outlined text-[18px] animate-spin">refresh</span>
-              Sending...
+              {copy.submittingLabel}
             </>
           ) : (
             <>
-              Submit Message
+              {copy.submitLabel}
               <span className="material-symbols-outlined text-[18px]">send</span>
             </>
           )}
@@ -175,7 +180,7 @@ export default function V2ContactForm() {
         >
           <span className="material-symbols-outlined text-v2-primary">check_circle</span>
           <p className="text-v2-primary text-sm font-v2-body">
-            Message sent successfully! I&apos;ll get back to you soon.
+            {copy.successMessage}
           </p>
         </div>
       )}

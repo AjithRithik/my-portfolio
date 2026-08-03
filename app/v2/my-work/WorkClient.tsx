@@ -1,19 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import type { ProjectCard, ProjectCategory } from "@/types/cms";
-import Image from "next/image";
+import type { ProjectCard, ProjectCategory, WorkPageData } from "@/types/cms";
 import ScrollReveal from "../components/ScrollReveal";
 
 interface WorkClientProps {
   hero: { subtitle: string; headline: string; description: string };
   projects: ProjectCard[];
+  filters: WorkPageData["filters"];
+  caseStudyLabel: string;
+  expertise: WorkPageData["expertise"];
 }
 
-const FILTERS: ProjectCategory[] = ["All", "React / Next.js", "Angular", "Backend / API", "CMS / Headless"];
-
-export default function WorkClient({ hero, projects }: WorkClientProps) {
-  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("All");
+export default function WorkClient({
+  hero,
+  projects,
+  filters,
+  caseStudyLabel,
+  expertise,
+}: WorkClientProps) {
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>(filters[0]?.category ?? "All");
 
   const filtered = activeFilter === "All"
     ? projects
@@ -46,12 +52,12 @@ export default function WorkClient({ hero, projects }: WorkClientProps) {
 
       {/* Filters */}
       <ScrollReveal direction="up" delay={100} className="flex flex-wrap gap-3 mb-12">
-        {FILTERS.map((filter) => {
-          const isActive = filter === activeFilter;
+        {filters.map((filter) => {
+          const isActive = filter.category === activeFilter;
           return (
             <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
+              key={filter.category}
+              onClick={() => setActiveFilter(filter.category)}
               className="px-6 py-2 rounded-full text-[14px] transition-all duration-200"
               style={{
                 fontFamily: "var(--font-jetbrains)",
@@ -61,7 +67,7 @@ export default function WorkClient({ hero, projects }: WorkClientProps) {
                 fontWeight: isActive ? "600" : "500",
               }}
             >
-              {filter === "All" ? "All Projects" : filter}
+              {filter.label}
             </button>
           );
         })}
@@ -175,7 +181,7 @@ export default function WorkClient({ hero, projects }: WorkClientProps) {
                           fontSize: "14px",
                         }}
                       >
-                        View Case Study
+                        {caseStudyLabel}
                       </a>
                     </div>
                   )}
@@ -189,17 +195,13 @@ export default function WorkClient({ hero, projects }: WorkClientProps) {
       {/* Core Expertise */}
       <ScrollReveal direction="up" className="mt-24 mb-8">
         <h2 className="text-center text-[36px] font-bold mb-12 font-v2-display text-v2-on-surface">
-          Core <span className="text-[#4cd7f6] transition-all duration-300" style={{ textShadow: "0 0 15px rgba(76, 215, 246, 0.6)" }}>Expertise</span>
+          {expertise.titleStart}{" "}
+          <span className="text-[#4cd7f6] transition-all duration-300" style={{ textShadow: "0 0 15px rgba(76, 215, 246, 0.6)" }}>
+            {expertise.titleHighlight}
+          </span>
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-          {[
-            { value: "9.5+", label: "YEARS EXP" },
-            { value: "React", label: "MASTERY" },
-            { value: "Next.js", label: "ARCHITECTURE" },
-            { value: "Node", label: "BACKEND" },
-            { value: "AWS", label: "CLOUD" },
-            { value: "UI/UX", label: "INTUITION" },
-          ].map((item, index) => (
+          {expertise.items.map((item, index) => (
             <ScrollReveal
               key={index}
               direction="up"

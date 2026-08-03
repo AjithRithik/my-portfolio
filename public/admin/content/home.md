@@ -1,4 +1,8 @@
 ---
+metadata:
+  title: "Ajith Kumar | Specialist Software Engineer"
+  description: "Portfolio home page for Ajith Kumar, a specialist software engineer building enterprise frontend applications with React, Angular, Next.js, and TypeScript."
+
 hero:
   available: true
   availableText: "Available for New Projects"
@@ -6,15 +10,30 @@ hero:
   headlineHighlight: "Ideas"
   headlineEnd: "Into Robust Digital Reality."
   bio: "I'm Ajith Kumar. With over 9.5 years immersed in the art of enterprise application development, I master JavaScript methodologies to craft high-performance, seamless user interfaces."
+  bioHighlight: "9.5 years"
   yearsExperience: "9.5+"
   ctaPrimary: "Explore My Work"
   ctaSecondary: "Download Resume"
+  profileImage: "/profile-image.png"
+  profileImageAlt: "Ajith Kumar Susai A"
 
 profile:
   phone: "+91 87 54 789957"
   location: "Tamil Nadu, IN"
   email: "official.ajith171995@gmail.com"
   birthday: "June 17, 1995"
+
+sections:
+  identityTitle: "Identity Hub"
+  phoneLabel: "Phone"
+  locationLabel: "Location"
+  emailLabel: "Email"
+  birthdayLabel: "Birthday"
+  experienceLabel: "Years Experience"
+  experienceDescription: "Enterprise Grade Solutions"
+  toolkitTitle: "Core Toolkit"
+  servicesTitleStart: "What"
+  servicesTitleHighlight: "I Do!"
 
 coreTools:
   - label: "React"

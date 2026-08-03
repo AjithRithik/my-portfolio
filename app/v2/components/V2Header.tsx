@@ -3,34 +3,41 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { NavigationItem } from "@/types/cms";
 
 interface V2HeaderProps {
-  downloadCvUrl?: string;
+  brandName: string;
+  profileImage: string;
+  profileImageAlt: string;
+  ctaLabel: string;
+  ctaUrl: string;
+  mobileMenuLabel: string;
+  navLinks: NavigationItem[];
 }
 
-const navLinks = [
-  { label: "About", href: "/v2" },
-  { label: "Resume", href: "/v2/resume" },
-  { label: "Work", href: "/v2/my-work" },
-  { label: "Contact", href: "/v2/contact" },
-];
-
-export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
+export default function V2Header({
+  brandName,
+  profileImage,
+  profileImageAlt,
+  ctaLabel,
+  ctaUrl,
+  mobileMenuLabel,
+  navLinks,
+}: V2HeaderProps) {
   const pathname = usePathname();
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // ── Scroll-aware show/hide ──────────────────────────────────────────────────
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
       if (currentY < 80) {
         setVisible(true);
       } else if (currentY < lastScrollY) {
-        setVisible(true); // scrolling up → show
+        setVisible(true);
       } else if (currentY > lastScrollY + 5) {
-        setVisible(false); // scrolling down → hide
+        setVisible(false);
         setMobileOpen(false);
       }
       setLastScrollY(currentY);
@@ -59,23 +66,19 @@ export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
         }}
       >
         <div className="max-w-v2-container mx-auto w-full px-v2-gutter h-full flex items-center justify-between relative">
-          {/* Brand */}
           <Link href="/v2" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-full border-2 border-v2-primary p-[2px] flex items-center justify-center transition-transform group-hover:scale-110">
               <img
-                src="/profile-image.png"
-                alt="Ajith Kumar"
+                src={profileImage}
+                alt={profileImageAlt}
                 className="w-full h-full object-cover rounded-full"
               />
             </div>
-            <span
-              className="font-v2-headline text-[20px] md:text-v2-headline-md text-v2-primary font-bold italic font-v2-display absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
-            >
-              Ajithkumar
+            <span className="font-v2-headline text-[20px] md:text-v2-headline-md text-v2-primary font-bold italic font-v2-display absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0">
+              {brandName}
             </span>
           </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
@@ -92,10 +95,9 @@ export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
             ))}
           </nav>
 
-          {/* Right CTA */}
           <div className="flex items-center gap-4">
             <a
-              href={downloadCvUrl}
+              href={ctaUrl}
               download
               className="hidden sm:flex items-center justify-center gap-2 py-2.5 px-5 font-bold rounded-lg shadow-lg transition-all hover:scale-105 active:scale-95 text-sm"
               style={{
@@ -105,13 +107,12 @@ export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
               }}
             >
               <span className="material-symbols-outlined text-lg">download</span>
-              Download CV
+              {ctaLabel}
             </a>
-            {/* Mobile menu toggle */}
             <button
               className="md:hidden text-v2-on-surface-variant p-1"
               onClick={() => setMobileOpen((prev) => !prev)}
-              aria-label="Toggle menu"
+              aria-label={mobileMenuLabel}
             >
               <span className="material-symbols-outlined text-3xl">
                 {mobileOpen ? "close" : "menu"}
@@ -121,7 +122,6 @@ export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
         </div>
       </header>
 
-      {/* Mobile dropdown menu */}
       <div
         className={`fixed top-20 left-0 right-0 z-[99] md:hidden transition-all duration-300 ease-in-out ${
           mobileOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
@@ -148,12 +148,12 @@ export default function V2Header({ downloadCvUrl = "#" }: V2HeaderProps) {
             </Link>
           ))}
           <a
-            href={downloadCvUrl}
+            href={ctaUrl}
             download
             className="mt-4 flex items-center justify-center gap-2 py-3 px-5 font-bold rounded-lg text-sm bg-gradient-to-r from-[#4cd7f6] to-[#d0bcff] text-[#003640]"
           >
             <span className="material-symbols-outlined text-lg">download</span>
-            Download CV
+            {ctaLabel}
           </a>
         </nav>
       </div>

@@ -9,6 +9,51 @@ media_folder: public/uploads
 public_folder: /uploads
 
 collections:
+  - name: site
+    label: "Site Settings"
+    files:
+      - name: site
+        label: "Global Site Content"
+        file: public/admin/content/site.md
+        fields:
+          - { name: brandName, label: "Header Brand Name", widget: string }
+          - { name: profileImage, label: "Header Profile Image", widget: image }
+          - { name: profileImageAlt, label: "Header Profile Image Alt Text", widget: string }
+          - { name: headerCtaLabel, label: "Header CTA Label", widget: string }
+          - { name: headerCtaUrl, label: "Header CTA URL", widget: string }
+          - { name: mobileMenuLabel, label: "Mobile Menu Button Label", widget: string }
+          - name: navLinks
+            label: Navigation Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: href, label: URL, widget: string }
+              - { name: icon, label: "Mobile Icon", widget: string }
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: brandName, label: "Footer Brand Name", widget: string }
+              - { name: copyrightName, label: "Copyright Name", widget: string }
+              - { name: builtWithText, label: "Built With Text", widget: string }
+          - name: social
+            label: Footer Social Links
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: icon, label: "Material Icon Name", widget: string }
+          - name: metadata
+            label: Site Metadata
+            widget: object
+            fields:
+              - { name: siteUrl, label: "Site URL", widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: ogTitle, label: "Open Graph Title", widget: string }
+              - { name: ogDescription, label: "Open Graph Description", widget: text }
+              - { name: ogImage, label: "Open Graph Image", widget: image }
+
   # ── Home Page ────────────────────────────────────────────────────────────────
   - name: home
     label: "Home Page"
@@ -17,6 +62,12 @@ collections:
         label: "Home Content"
         file: public/admin/content/home.md
         fields:
+          - name: metadata
+            label: Page Metadata
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
           - name: hero
             label: Hero Section
             widget: object
@@ -27,9 +78,12 @@ collections:
               - { name: headlineHighlight, label: "Highlighted Word", widget: string }
               - { name: headlineEnd, label: "Headline End", widget: string }
               - { name: bio, label: "Bio Text", widget: text }
+              - { name: bioHighlight, label: "Bio Highlight Text", widget: string }
               - { name: yearsExperience, label: "Years Experience", widget: string }
               - { name: ctaPrimary, label: "Primary CTA", widget: string }
               - { name: ctaSecondary, label: "Secondary CTA", widget: string }
+              - { name: profileImage, label: "Profile Image", widget: image }
+              - { name: profileImageAlt, label: "Profile Image Alt Text", widget: string }
           - name: profile
             label: Profile Card
             widget: object
@@ -38,6 +92,20 @@ collections:
               - { name: location, label: Location, widget: string }
               - { name: email, label: Email, widget: string }
               - { name: birthday, label: Birthday, widget: string }
+          - name: sections
+            label: Section Labels
+            widget: object
+            fields:
+              - { name: identityTitle, label: "Identity Title", widget: string }
+              - { name: phoneLabel, label: "Phone Label", widget: string }
+              - { name: locationLabel, label: "Location Label", widget: string }
+              - { name: emailLabel, label: "Email Label", widget: string }
+              - { name: birthdayLabel, label: "Birthday Label", widget: string }
+              - { name: experienceLabel, label: "Experience Label", widget: string }
+              - { name: experienceDescription, label: "Experience Description", widget: string }
+              - { name: toolkitTitle, label: "Toolkit Title", widget: string }
+              - { name: servicesTitleStart, label: "Services Title Start", widget: string }
+              - { name: servicesTitleHighlight, label: "Services Title Highlight", widget: string }
           - name: coreTools
             label: Core Tools
             widget: list
@@ -76,6 +144,12 @@ collections:
         label: "Resume Content"
         file: public/admin/content/resume.md
         fields:
+          - name: metadata
+            label: Page Metadata
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
           - { name: name, label: "Full Name", widget: string }
           - { name: role, label: Role, widget: string }
           - { name: phone, label: Phone, widget: string }
@@ -131,6 +205,25 @@ collections:
                 label: Accent
                 widget: select
                 options: [primary, secondary, tertiary]
+          - name: labels
+            label: Page Labels
+            widget: object
+            fields:
+              - { name: phoneLabel, label: "Phone Label", widget: string }
+              - { name: emailLabel, label: "Email Label", widget: string }
+              - { name: locationLabel, label: "Location Label", widget: string }
+              - { name: downloadResumeLabel, label: "Download Button Label", widget: string }
+              - { name: experienceTitle, label: "Experience Section Title", widget: string }
+              - { name: educationTitle, label: "Education Section Title", widget: string }
+              - { name: technicalTitle, label: "Skills Section Title", widget: string }
+              - { name: devopsTitle, label: "DevOps Section Title", widget: string }
+              - { name: terminalWindowTitle, label: "Terminal Window Title", widget: string }
+              - { name: terminalCommand, label: "Terminal Command", widget: string }
+              - { name: terminalPrompt, label: "Terminal Prompt", widget: string }
+              - { name: terminalExperienceKey, label: "Terminal Experience Key", widget: string }
+              - { name: terminalPhilosophyKey, label: "Terminal Philosophy Key", widget: string }
+              - { name: terminalMotivationKey, label: "Terminal Motivation Key", widget: string }
+              - { name: terminalBoundariesKey, label: "Terminal Boundaries Key", widget: string }
           - name: terminalQuote
             label: Terminal Quote
             widget: object
@@ -148,6 +241,12 @@ collections:
         label: "Work Hero Content"
         file: public/admin/content/work-hero.md
         fields:
+          - name: metadata
+            label: Page Metadata
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
           - name: hero
             label: Hero
             widget: object
@@ -155,6 +254,28 @@ collections:
               - { name: subtitle, label: Subtitle, widget: string }
               - { name: headline, label: Headline, widget: string }
               - { name: description, label: Description, widget: text }
+          - name: filters
+            label: Filter Buttons
+            widget: list
+            fields:
+              - { name: label, label: Label, widget: string }
+              - name: category
+                label: Category
+                widget: select
+                options: ["All", "React / Next.js", "Angular", "Backend / API", "CMS / Headless"]
+          - { name: caseStudyLabel, label: "Case Study Button Label", widget: string }
+          - name: expertise
+            label: Expertise Stats
+            widget: object
+            fields:
+              - { name: titleStart, label: "Title Start", widget: string }
+              - { name: titleHighlight, label: "Title Highlight", widget: string }
+              - name: items
+                label: Stats
+                widget: list
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: label, label: Label, widget: string }
 
   # ── Projects ─────────────────────────────────────────────────────────────────
   - name: projects
@@ -187,6 +308,12 @@ collections:
         label: "Contact Content"
         file: public/admin/content/contact.md
         fields:
+          - name: metadata
+            label: Page Metadata
+            widget: object
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: description, label: Description, widget: text }
           - name: availability
             label: Availability
             widget: object
@@ -205,4 +332,34 @@ collections:
               - { name: label, label: Label, widget: string }
               - { name: url, label: URL, widget: string }
               - { name: icon, label: "Material Icon Name", widget: string }
+          - { name: mapImage, label: "Map / Location Image", widget: image, required: false }
+          - { name: mapImageAlt, label: "Map Image Alt Text", widget: string }
+          - { name: mapTitle, label: "Map Card Title", widget: string }
+          - { name: mapLocation, label: "Map Card Location", widget: string }
+          - name: contactLabels
+            label: Contact Labels
+            widget: object
+            fields:
+              - { name: phone, label: "Phone Label", widget: string }
+              - { name: email, label: "Email Label", widget: string }
+              - { name: location, label: "Location Label", widget: string }
+          - name: form
+            label: Contact Form Copy
+            widget: object
+            fields:
+              - { name: nameLabel, label: "Name Label", widget: string }
+              - { name: namePlaceholder, label: "Name Placeholder", widget: string }
+              - { name: emailLabel, label: "Email Label", widget: string }
+              - { name: emailPlaceholder, label: "Email Placeholder", widget: string }
+              - { name: messageLabel, label: "Message Label", widget: string }
+              - { name: messagePlaceholder, label: "Message Placeholder", widget: string }
+              - { name: submitLabel, label: "Submit Label", widget: string }
+              - { name: submittingLabel, label: "Submitting Label", widget: string }
+              - { name: successMessage, label: "Success Message", widget: string }
+              - { name: defaultErrorMessage, label: "Default Error Message", widget: string }
+              - { name: networkErrorMessage, label: "Network Error Message", widget: string }
+          - { name: terminalUser, label: "Terminal User", widget: string }
+          - { name: terminalHost, label: "Terminal Host", widget: string }
+          - { name: terminalCommand, label: "Terminal Command", widget: string }
+          - { name: terminalFile, label: "Terminal File", widget: string }
           - { name: terminalMotivation, label: "Terminal Quote", widget: text }

@@ -7,6 +7,7 @@ import type {
   WorkPageData,
   ContactPageData,
   ProjectCard,
+  SitePageData,
 } from "@/types/cms";
 
 const CONTENT_DIR = path.join(process.cwd(), "public", "admin", "content");
@@ -22,6 +23,11 @@ function readFile(filePath: string): { data: Record<string, unknown>; content: s
 }
 
 // ─── Home ─────────────────────────────────────────────────────────────────────
+export function getSiteData(): SitePageData {
+  const { data } = readFile(path.join(CONTENT_DIR, "site.md"));
+  return data as unknown as SitePageData;
+}
+
 export function getHomeData(): HomePageData {
   const { data } = readFile(path.join(CONTENT_DIR, "home.md"));
   return data as unknown as HomePageData;
@@ -55,6 +61,10 @@ export function getWorkData(): WorkPageData {
 
   return {
     hero: (heroFile.data.hero || heroFile.data) as unknown as WorkPageData["hero"],
+    metadata: heroFile.data.metadata as unknown as WorkPageData["metadata"],
+    filters: heroFile.data.filters as unknown as WorkPageData["filters"],
+    caseStudyLabel: heroFile.data.caseStudyLabel as string,
+    expertise: heroFile.data.expertise as unknown as WorkPageData["expertise"],
     projects,
   };
 }

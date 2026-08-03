@@ -1,11 +1,16 @@
 import { getResumeData } from "@/lib/cms";
+import type { Metadata } from "next";
 import type { ResumePageData } from "@/types/cms";
 import ScrollReveal from "../components/ScrollReveal";
 
-export const metadata = {
-  title: "Ajith Kumar | Technical Resume",
-  description: "9.5+ years of enterprise frontend experience — React, Angular, Next.js, TypeScript.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const data = getResumeData();
+
+  return {
+    title: data.metadata.title,
+    description: data.metadata.description,
+  };
+}
 
 export default async function ResumePage() {
   const data: ResumePageData = await getResumeData();
@@ -21,8 +26,8 @@ export default async function ResumePage() {
           <div className="relative w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden p-2 border-2 border-[rgba(192,193,255,0.2)]"
           >
             <img
-              src={data?.profileImage || "/profile-image.png"}
-              alt={data?.name || "Ajith Kumar"}
+              src={data.profileImage}
+              alt={data.name}
               className="w-full h-full object-cover rounded-xl"
             />
           </div>
@@ -32,21 +37,21 @@ export default async function ResumePage() {
             <h1
               className="text-[32px] font-bold text-v2-on-surface mb-2 font-v2-display leading-[40px]"
             >
-              {data?.name || "Ajith Kumar Susai A"}
+              {data.name}
             </h1>
             <p
               className="text-[12px] uppercase tracking-widest text-v2-secondary-alt font-v2-mono"
             >
-              {data?.role || "Specialist Software Engineer"}
+              {data.role}
             </p>
           </div>
 
           {/* Contact info */}
           <div className="space-y-6">
             {[
-              { icon: "call", label: "Phone", value: data?.phone },
-              { icon: "mail", label: "Email", value: data?.email },
-              { icon: "location_on", label: "Location", value: data?.location },
+              { icon: "call", label: data.labels.phoneLabel, value: data?.phone },
+              { icon: "mail", label: data.labels.emailLabel, value: data?.email },
+              { icon: "location_on", label: data.labels.locationLabel, value: data?.location },
             ].map(({ icon, label, value }) => (
               <div key={label} className="flex items-center gap-4 group">
                 <div
@@ -86,7 +91,7 @@ export default async function ResumePage() {
 
           {/* Download Resume */}
           <a
-            href={data?.downloadResumeUrl || "#"}
+            href={data.downloadResumeUrl}
             download
             className="w-full mt-8 flex items-center justify-center gap-2 py-4 rounded-lg transition-all hover:brightness-110 active:scale-95"
             style={{
@@ -99,7 +104,7 @@ export default async function ResumePage() {
             }}
           >
             <span className="material-symbols-outlined">download</span>
-            DOWNLOAD RESUME
+            {data.labels.downloadResumeLabel}
           </a>
         </div>
       </ScrollReveal>
@@ -116,7 +121,7 @@ export default async function ResumePage() {
               <h2
                 className="text-[24px] font-semibold font-v2-display leading-[32px]"
               >
-                Professional Journey
+                {data.labels.experienceTitle}
               </h2>
             </div>
             <div
@@ -178,7 +183,7 @@ export default async function ResumePage() {
               <h2
                 className="text-[24px] font-semibold font-v2-display leading-[32px]"
               >
-                Education
+                {data.labels.educationTitle}
               </h2>
             </div>
             <div className="exp-timeline space-y-12 relative before:content-[''] before:absolute before:left-3 before:top-4 before:bottom-0 before:w-px before:bg-[rgba(70,69,84,0.3)]">
@@ -220,7 +225,7 @@ export default async function ResumePage() {
             <h2
               className="text-[24px] font-semibold font-v2-display leading-[32px]"
             >
-              Technical Mastery
+              {data.labels.technicalTitle}
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -304,7 +309,7 @@ export default async function ResumePage() {
                     letterSpacing: "0.05em",
                   }}
                 >
-                  DevOps &amp; Ecosystem
+                  {data.labels.devopsTitle}
                 </h3>
                 <span className="material-symbols-outlined text-[rgba(255,178,183,0.4)]">
                   settings_suggest
@@ -349,14 +354,14 @@ export default async function ResumePage() {
             <span
               className="text-[12px] text-v2-on-surface-variant ml-4 font-v2-mono"
             >
-              career-summary.sh
+              {data.labels.terminalWindowTitle}
             </span>
           </div>
           <div
             className="p-6 text-sm leading-relaxed font-v2-mono text-[rgba(76,215,246,0.8)]"
           >
             <p className="mb-2">
-              <span className="text-v2-primary-alt">$</span> cat personality.json
+              <span className="text-v2-primary-alt">{data.labels.terminalPrompt}</span> {data.labels.terminalCommand}
             </p>
             <p className="text-v2-on-surface ml-4">{"{"}</p>
             <p className="text-v2-on-surface ml-8">&quot;experience&quot;: &quot;{data?.terminalQuote?.experience}&quot;,</p>
@@ -365,7 +370,7 @@ export default async function ResumePage() {
             <p className="text-v2-on-surface ml-8">&quot;boundaries&quot;: &quot;{data?.terminalQuote?.boundaries}&quot;</p>
             <p className="text-v2-on-surface ml-4">{"}"}</p>
             <p>
-              <span className="text-v2-primary-alt">$</span>{" "}
+              <span className="text-v2-primary-alt">{data.labels.terminalPrompt}</span>{" "}
               <span className="animate-[v2-pulse-dot_1s_ease-in-out_infinite]">_</span>
             </p>
           </div>

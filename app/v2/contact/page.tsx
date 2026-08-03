@@ -1,11 +1,16 @@
 import { getContactData } from "@/lib/cms";
+import type { Metadata } from "next";
 import V2ContactForm from "../components/V2ContactForm";
 import ScrollReveal from "../components/ScrollReveal";
 
-export const metadata = {
-  title: "Contact | Ajith Kumar - Full Stack Architect",
-  description: "Get in touch with Ajith Kumar for product development, architectural consultations, or technical leadership opportunities.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const data = getContactData();
+
+  return {
+    title: data.metadata.title,
+    description: data.metadata.description,
+  };
+}
 
 export default async function ContactPage() {
   const data = await getContactData();
@@ -44,7 +49,7 @@ export default async function ContactPage() {
                   letterSpacing: "-0.02em",
                 }}
               >
-                {data?.headline || "Get in Touch"}
+                {data?.headline}
               </h1>
               <p
                 className="text-v2-on-surface-variant max-w-md"
@@ -58,9 +63,9 @@ export default async function ContactPage() {
           {/* Contact Cards */}
           <div className="grid gap-4">
             {[
-              { icon: "smartphone", label: "Phone", value: data?.phone, accent: "#c0c1ff" },
-              { icon: "mail", label: "Email", value: data?.email, accent: "#4cd7f6" },
-              { icon: "location_on", label: "Location", value: data?.location, accent: "#ffb2b7" },
+              { icon: "smartphone", label: data.contactLabels.phone, value: data?.phone, accent: "#c0c1ff" },
+              { icon: "mail", label: data.contactLabels.email, value: data?.email, accent: "#4cd7f6" },
+              { icon: "location_on", label: data.contactLabels.location, value: data?.location, accent: "#ffb2b7" },
             ].map(({ icon, label, value, accent }, index) => (
               <ScrollReveal
                 key={label}
@@ -126,7 +131,7 @@ export default async function ContactPage() {
               style={{ background: "radial-gradient(circle, rgba(76,215,246,0.1) 0%, transparent 70%)" }}
             />
 
-            <V2ContactForm />
+            <V2ContactForm copy={data.form} />
 
             {/* Terminal motivation */}
             <div
@@ -145,8 +150,8 @@ export default async function ContactPage() {
               </div>
               <div style={{ color: "#c7c4d7" }}>
                 <p>
-                  <span className="text-v2-primary-alt">developer</span>@ak-dev:~${" "}
-                  <span className="text-v2-secondary-alt">cat</span> motivation.txt
+                  <span className="text-v2-primary-alt">{data.terminalUser}</span>@{data.terminalHost}:~${" "}
+                  <span className="text-v2-secondary-alt">{data.terminalCommand}</span> {data.terminalFile}
                 </p>
                 <p className="mt-2 text-v2-outline-alt italic">
                   &ldquo;{data?.terminalMotivation}&rdquo;
@@ -163,8 +168,8 @@ export default async function ContactPage() {
           className="bg-[rgba(15,23,42,0.6)] backdrop-blur-[12px] border border-[rgba(30,41,59,0.5)] hover:border-[#c0c1ff] hover:shadow-[0_0_20px_rgba(192,193,255,0.15)] rounded-2xl h-[300px] relative overflow-hidden transition-all duration-1000 group grayscale brightness-50 contrast-125 hover:grayscale-0 hover:brightness-100 hover:contrast-100"
         >
           <img
-            src="/page-bg-1.jpg"
-            alt="Coimbatore, Tamil Nadu"
+            src={data.mapImage}
+            alt={data.mapImageAlt}
             className="w-full h-full object-cover"
           />
           <div
@@ -193,13 +198,13 @@ export default async function ContactPage() {
                   className="text-v2-on-surface font-semibold"
                   style={{ fontFamily: "var(--font-sora)", fontSize: "18px" }}
                 >
-                  Base of Operations
+                  {data.mapTitle}
                 </h3>
                 <p
                   className="text-v2-on-surface-variant"
                   style={{ fontFamily: "var(--font-manrope)", fontSize: "14px" }}
                 >
-                  Coimbatore, Tamil Nadu, India
+                  {data.mapLocation}
                 </p>
               </div>
             </div>

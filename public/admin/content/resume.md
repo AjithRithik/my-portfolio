@@ -1,4 +1,8 @@
 ---
+metadata:
+  title: "Ajith Kumar | Technical Resume"
+  description: "9.5+ years of enterprise frontend experience - React, Angular, Next.js, TypeScript."
+
 name: "Ajith Kumar Susai A"
 role: "Specialist Software Engineer"
 phone: "+91 87 54 789957"
@@ -91,6 +95,23 @@ devopsTools:
     accent: "primary"
   - label: "GrowthBook"
     accent: "secondary"
+
+labels:
+  phoneLabel: "Phone"
+  emailLabel: "Email"
+  locationLabel: "Location"
+  downloadResumeLabel: "Download Resume"
+  experienceTitle: "Professional Journey"
+  educationTitle: "Education"
+  technicalTitle: "Technical Mastery"
+  devopsTitle: "DevOps & Ecosystem"
+  terminalWindowTitle: "career-summary.sh"
+  terminalCommand: "cat personality.json"
+  terminalPrompt: "$"
+  terminalExperienceKey: "experience"
+  terminalPhilosophyKey: "philosophy"
+  terminalMotivationKey: "motivation"
+  terminalBoundariesKey: "boundaries"
 
 terminalQuote:
   experience: "9.5+ Years"

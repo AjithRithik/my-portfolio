@@ -1,10 +1,20 @@
 import { getHomeData } from "@/lib/cms";
+import type { Metadata } from "next";
 import type { HomePageData } from "@/types/cms";
 import ScrollReveal from "./components/ScrollReveal";
 
+export async function generateMetadata(): Promise<Metadata> {
+  const data = getHomeData();
+
+  return {
+    title: data.metadata.title,
+    description: data.metadata.description,
+  };
+}
+
 export default async function V2Home() {
   const data: HomePageData = await getHomeData();
-  const { hero, profile, coreTools, services } = data;
+  const { hero, profile, sections, coreTools, services } = data;
 
   return (
     <>
@@ -24,7 +34,7 @@ export default async function V2Home() {
                 <span
                   className="text-v2-primary text-[14px] font-v2-mono tracking-widest"
                 >
-                  {hero.availableText || "Available for New Projects"}
+                  {hero.availableText}
                 </span>
               </div>
             )}
@@ -42,11 +52,11 @@ export default async function V2Home() {
             <p
               className="text-[18px] leading-relaxed text-v2-on-surface-variant max-w-2xl font-v2-body"
             >
-              {hero?.bio?.split(hero?.yearsExperience || "9.5").map((part, i, arr) =>
+              {hero.bio.split(hero.bioHighlight).map((part, i, arr) =>
                 i < arr.length - 1 ? (
                   <span key={i}>
                     {part}
-                    <span className="text-v2-primary font-bold">{hero.yearsExperience} years</span>
+                    <span className="text-v2-primary font-bold">{hero.bioHighlight}</span>
                   </span>
                 ) : (
                   <span key={i}>{part}</span>
@@ -60,7 +70,7 @@ export default async function V2Home() {
                 href="/v2/my-work"
                 className="px-8 py-4 font-bold rounded-lg shadow-xl flex items-center gap-2 hover:scale-105 transition-transform bg-gradient-to-r from-[#4cd7f6] to-[#d0bcff] text-[#003640] shadow-[0_20px_40px_rgba(76,215,246,0.25)]"
               >
-                {hero?.ctaPrimary || "Explore My Work"}
+                {hero?.ctaPrimary}
                 <span className="material-symbols-outlined">arrow_forward</span>
               </a>
               <a
@@ -68,7 +78,7 @@ export default async function V2Home() {
                 download
                 className="px-8 py-4 font-bold rounded-lg flex items-center gap-2 hover:border-v2-primary transition-colors bg-transparent border border-[rgba(255,255,255,0.1)] text-[#dae2fd] backdrop-blur-sm"
               >
-                {hero?.ctaSecondary || "Download Resume"}
+                {hero?.ctaSecondary}
                 <span className="material-symbols-outlined">download</span>
               </a>
             </div>
@@ -78,8 +88,8 @@ export default async function V2Home() {
           <ScrollReveal direction="left" delay={200} className="lg:col-span-5 relative">
             <div className="aspect-square relative z-10 p-4 bg-[rgba(30,41,59,0.7)] backdrop-blur-[12px] border border-[rgba(255,255,255,0.1)] shadow-[inset_0_0.5px_0_0_rgba(255,255,255,0.1)] rounded-[2rem] overflow-hidden">
               <img
-                src="/profile-image.png"
-                alt="Ajith Kumar Susai A"
+                src={hero.profileImage}
+                alt={hero.profileImageAlt}
                 className="w-full h-full object-cover rounded-[1.5rem] grayscale hover:grayscale-0 transition-all duration-700"
               />
             </div>
@@ -102,14 +112,14 @@ export default async function V2Home() {
             <h3
               className="text-[24px] font-semibold text-v2-primary font-v2-display"
             >
-              Identity Hub
+              {sections.identityTitle}
             </h3>
             <div className="grid grid-cols-2 gap-y-6">
               {[
-                { icon: "phone", label: "Phone", value: profile?.phone },
-                { icon: "location_on", label: "Location", value: profile?.location },
-                { icon: "mail", label: "Email", value: profile?.email?.slice(0, 16) + "..." },
-                { icon: "cake", label: "Birthday", value: profile?.birthday },
+                { icon: "phone", label: sections.phoneLabel, value: profile?.phone },
+                { icon: "location_on", label: sections.locationLabel, value: profile?.location },
+                { icon: "mail", label: sections.emailLabel, value: profile?.email?.slice(0, 16) + "..." },
+                { icon: "cake", label: sections.birthdayLabel, value: profile?.birthday },
               ].map(({ icon, label, value }) => (
                 <div key={label} className="flex items-center gap-4">
                   <div
@@ -144,10 +154,10 @@ export default async function V2Home() {
             <p
               className="text-[12px] font-semibold tracking-widest uppercase text-v2-on-surface-variant font-v2-body"
             >
-              Years Experience
+              {sections.experienceLabel}
             </p>
             <p className="text-[12px] text-[rgba(188,201,205,0.6)]">
-              Enterprise Grade Solutions
+              {sections.experienceDescription}
             </p>
           </ScrollReveal>
 
@@ -156,7 +166,7 @@ export default async function V2Home() {
             <h4
               className="text-[12px] font-semibold text-v2-on-surface-variant uppercase tracking-widest font-v2-body"
             >
-              Core Toolkit
+              {sections.toolkitTitle}
             </h4>
             <div className="flex flex-wrap gap-2 mt-4">
               {coreTools?.map((tool) => (
@@ -185,7 +195,8 @@ export default async function V2Home() {
           <h2
             className="text-[40px] font-semibold mb-4 font-v2-display leading-[1.2]"
           >
-            What <span className="text-v2-primary">I Do!</span>
+            {sections.servicesTitleStart}{" "}
+            <span className="text-v2-primary">{sections.servicesTitleHighlight}</span>
           </h2>
           <div
             className="w-24 h-1 rounded-full"
