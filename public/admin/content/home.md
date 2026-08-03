@@ -9,7 +9,7 @@ hero:
   headline: "Transforming"
   headlineHighlight: "Ideas"
   headlineEnd: "Into Robust Digital Reality."
-  bio: "I'm Ajith Kumar. With over 9.5 years immersed in the art of enterprise application development, I master JavaScript methodologies to craft high-performance, seamless user interfaces."
+  bio: "I'm Ajith Kumar, a Front-End specialist with over 9.5 years building scalable, high-performance web applications in Angular, React and Next.js, with partial MEAN stack and headless CMS delivery experience."
   bioHighlight: "9.5 years"
   yearsExperience: "9.5+"
   ctaPrimary: "Explore My Work"
@@ -91,5 +91,13 @@ social:
     url: "https://www.instagram.com/ajith_rithik/"
     icon: "photo_camera"
 
-downloadCvUrl: "/resume/AjithKumar_Resume.pdf"
+downloadCvUrl: "/api/resume-pdf"
+
+explore:
+  titleStart: "Explore"
+  titleHighlight: "the Full Picture"
+  description: "A closer look at my experience, selected work, and how to get in touch."
+  experienceCta: "View Experience & Skills"
+  projectsCta: "View All Projects"
+  contactCta: "Get in Touch"
 ---

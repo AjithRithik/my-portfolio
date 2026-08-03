@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
     "@types/nodemailer": "^6.4.14",
     "formik": "^2.4.5",
     "gray-matter": "^4.0.3",

@@ -135,6 +135,16 @@ collections:
               - { name: url, label: URL, widget: string }
               - { name: icon, label: "Material Icon Name", widget: string }
           - { name: downloadCvUrl, label: "Download CV URL", widget: string }
+          - name: explore
+            label: "Explore Sections Block"
+            widget: object
+            fields:
+              - { name: titleStart, label: "Title Start", widget: string }
+              - { name: titleHighlight, label: "Title Highlight", widget: string }
+              - { name: description, label: Description, widget: text }
+              - { name: experienceCta, label: "Experience Card CTA", widget: string }
+              - { name: projectsCta, label: "Projects Card CTA", widget: string }
+              - { name: contactCta, label: "Contact Card CTA", widget: string }
 
   # ── Resume Page ──────────────────────────────────────────────────────────────
   - name: resume
@@ -152,11 +162,13 @@ collections:
               - { name: description, label: Description, widget: text }
           - { name: name, label: "Full Name", widget: string }
           - { name: role, label: Role, widget: string }
+          - { name: techLine, label: "Tech Line (under name)", widget: string }
           - { name: phone, label: Phone, widget: string }
           - { name: email, label: Email, widget: string }
           - { name: location, label: Location, widget: string }
+          - { name: portfolioUrl, label: "Portfolio URL", widget: string }
           - { name: profileImage, label: "Profile Image", widget: image }
-          - { name: downloadResumeUrl, label: "Resume PDF URL", widget: string }
+          - { name: downloadResumeUrl, label: "Resume Download URL", widget: string }
           - name: social
             label: Social Links
             widget: list
@@ -164,6 +176,7 @@ collections:
               - { name: label, label: Label, widget: string }
               - { name: url, label: URL, widget: string }
               - { name: icon, label: "Material Icon Name", widget: string }
+          - { name: summary, label: "Profile Summary Paragraphs", widget: list }
           - name: experience
             label: Experience
             widget: list
@@ -171,8 +184,16 @@ collections:
               - { name: period, label: Period, widget: string }
               - { name: role, label: Role, widget: string }
               - { name: company, label: Company, widget: string }
-              - { name: description, label: Description, widget: text, required: false }
+              - { name: employmentType, label: "Employment Type", widget: string, required: false }
+              - { name: location, label: Location, widget: string, required: false }
               - { name: isCurrent, label: "Is Current Role", widget: boolean, default: false }
+              - name: projectGroups
+                label: Project Groups
+                widget: list
+                fields:
+                  - { name: label, label: "Group Label", widget: string }
+                  - { name: chips, label: "Project Name Chips", widget: list }
+                  - { name: bullets, label: "Bullet Points", widget: list }
           - name: education
             label: Education
             widget: list
@@ -180,31 +201,20 @@ collections:
               - { name: period, label: Period, widget: string }
               - { name: degree, label: Degree, widget: string }
               - { name: institution, label: Institution, widget: string }
-          - name: skillGroups
-            label: Skill Groups
+          - name: skillCategories
+            label: Skill Categories
             widget: list
             fields:
               - { name: title, label: Title, widget: string }
-              - { name: icon, label: "Material Icon", widget: string }
-              - name: accent
-                label: Accent Color
-                widget: select
-                options: [primary, secondary, tertiary]
-              - name: skills
-                label: Skills
-                widget: list
-                fields:
-                  - { name: name, label: Skill Name, widget: string }
-                  - { name: level, label: "Level (0-100)", widget: number }
-          - name: devopsTools
-            label: "DevOps Tools"
+              - { name: icon, label: "Material Icon (card fallback)", widget: string }
+              - { name: skills, label: Skills, widget: list }
+          - name: personalProjects
+            label: Personal Projects
             widget: list
             fields:
-              - { name: label, label: Label, widget: string }
-              - name: accent
-                label: Accent
-                widget: select
-                options: [primary, secondary, tertiary]
+              - { name: name, label: Name, widget: string }
+              - { name: url, label: URL, widget: string }
+              - { name: techStack, label: "Tech Stack", widget: string }
           - name: labels
             label: Page Labels
             widget: object
@@ -216,7 +226,7 @@ collections:
               - { name: experienceTitle, label: "Experience Section Title", widget: string }
               - { name: educationTitle, label: "Education Section Title", widget: string }
               - { name: technicalTitle, label: "Skills Section Title", widget: string }
-              - { name: devopsTitle, label: "DevOps Section Title", widget: string }
+              - { name: personalProjectsTitle, label: "Personal Projects Section Title", widget: string }
               - { name: terminalWindowTitle, label: "Terminal Window Title", widget: string }
               - { name: terminalCommand, label: "Terminal Command", widget: string }
               - { name: terminalPrompt, label: "Terminal Prompt", widget: string }

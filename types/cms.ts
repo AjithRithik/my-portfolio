@@ -49,35 +49,38 @@ export interface Service {
   accent: "primary" | "secondary";
 }
 
-export interface SkillBar {
-  name: string;
-  level: number; // 0–100
-}
-
-export interface SkillGroup {
+export interface SkillCategory {
   title: string;
-  icon: string;
-  accent: "primary" | "secondary" | "tertiary";
-  skills: SkillBar[];
+  icon: string; // material-symbol name, used as the category-card fallback icon
+  skills: string[];
 }
 
-export interface ToolChip {
-  label: string;
-  accent: "primary" | "secondary" | "tertiary";
+export interface ProjectGroup {
+  label: string; // e.g. "Projects" or "Sports Projects"
+  chips: string[]; // project name pills
+  bullets: string[];
 }
 
 export interface ExperienceItem {
   period: string;
   role: string;
   company: string;
-  description?: string;
+  employmentType?: string;
+  location?: string;
   isCurrent?: boolean;
+  projectGroups?: ProjectGroup[];
 }
 
 export interface EducationItem {
   period: string;
   degree: string;
   institution: string;
+}
+
+export interface PersonalProject {
+  name: string;
+  url: string;
+  techStack: string;
 }
 
 export interface CoreTool {
@@ -126,6 +129,14 @@ export interface HomePageData {
   services: Service[];
   social: SocialLink[];
   downloadCvUrl: string;
+  explore: {
+    titleStart: string;
+    titleHighlight: string;
+    description: string;
+    experienceCta: string;
+    projectsCta: string;
+    contactCta: string;
+  };
 }
 
 // ─── Resume Page ─────────────────────────────────────────────────────────────
@@ -133,16 +144,19 @@ export interface ResumePageData {
   metadata: MetadataContent;
   name: string;
   role: string;
+  techLine: string;
   phone: string;
   email: string;
   location: string;
+  portfolioUrl: string;
   profileImage: string;
   downloadResumeUrl: string;
   social: SocialLink[];
+  summary: string[];
   experience: ExperienceItem[];
   education: EducationItem[];
-  skillGroups: SkillGroup[];
-  devopsTools: ToolChip[];
+  skillCategories: SkillCategory[];
+  personalProjects: PersonalProject[];
   labels: {
     phoneLabel: string;
     emailLabel: string;
@@ -151,7 +165,7 @@ export interface ResumePageData {
     experienceTitle: string;
     educationTitle: string;
     technicalTitle: string;
-    devopsTitle: string;
+    personalProjectsTitle: string;
     terminalWindowTitle: string;
     terminalCommand: string;
     terminalPrompt: string;
